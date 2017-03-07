@@ -2,9 +2,11 @@
 
 # haskell-lambda-calculus
 
+*λ-Calculus in Haskell*
+
 ## Setup
 
-**Requirements***
+**Requirements**
 
 * Stack
 
