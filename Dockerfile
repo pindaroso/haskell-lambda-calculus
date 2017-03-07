@@ -7,7 +7,8 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
 RUN useradd -ms /bin/bash robot
 RUN groupadd nixbld && usermod -a -G nixbld robot
 ENV HOME /home/robot
-RUN mkdir -p /nix $HOME/.nixpkgs && chown -R robot /nix $HOME/.nixpkgs /home/robot
+RUN mkdir -p /nix $HOME/.nixpkgs /home/robot/code && \
+    chown -R robot /nix $HOME/.nixpkgs /home/robot/code
 ENV USER robot
 USER robot
 WORKDIR /home/robot
