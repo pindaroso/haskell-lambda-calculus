@@ -7,8 +7,7 @@ RUN apt-get update -y && apt-get upgrade -y && apt-get install -y \
 RUN useradd -ms /bin/bash robot
 RUN groupadd nixbld && usermod -a -G nixbld robot
 ENV HOME /home/robot
-RUN mkdir -p /nix /opt/keter/incoming /opt/keter/etc /opt/haskell-yesod-example/.stack-work $HOME/.nixpkgs && \
-    chown -R robot /nix /opt/keter /opt/haskell-yesod-example $HOME/.nixpkgs
+RUN mkdir -p /nix $HOME/.nixpkgs && chown -R robot /nix $HOME/.nixpkgs /home/robot
 ENV USER robot
 USER robot
 WORKDIR /home/robot
