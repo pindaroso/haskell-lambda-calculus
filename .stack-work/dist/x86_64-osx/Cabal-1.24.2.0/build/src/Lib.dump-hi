@@ -1,0 +1,580 @@
+
+==================== FINAL INTERFACE ====================
+2017-03-07 21:36:20.042557 UTC
+
+interface lambda-calculus-0.1.0.0-71ACHzEMgLIBMHG57ZzwZM:Lib 8002
+  interface hash: facf8449fc5fa67504b7934f180651f2
+  ABI hash: b34a9ecb0bdbbcfda7f880c6b6029c20
+  export-list hash: c86719c7a65948bc60c17a6f9570abaf
+  orphan hash: 693e9af84d3dfcc71e640e005bdc5e2e
+  flag hash: f6624f22fcdd76ed0ac6625466e2d712
+  sig of: Nothing
+  used TH splices: False
+  where
+exports:
+  Lib.eval
+  Lib.prog
+module dependencies:
+package dependencies: base-4.9.1.0* ghc-prim-0.5.0.0
+                      integer-gmp-1.0.0.1
+orphans: base-4.9.1.0:GHC.Base base-4.9.1.0:GHC.Float
+family instance modules: base-4.9.1.0:Control.Applicative
+                         base-4.9.1.0:Data.Either base-4.9.1.0:Data.Functor.Const
+                         base-4.9.1.0:Data.Monoid base-4.9.1.0:Data.Type.Equality
+                         base-4.9.1.0:GHC.Generics base-4.9.1.0:GHC.IO.Exception
+                         base-4.9.1.0:GHC.TypeLits
+import  -/  base-4.9.1.0:GHC.Base c4231c43c07e46080a26bf94094c7aa1
+import  -/  base-4.9.1.0:GHC.Err 3bba35a16538d33d424682ce66876cdd
+import  -/  base-4.9.1.0:GHC.Show a027f5ac24879eaba752f44aa90fe511
+import  -/  base-4.9.1.0:Prelude 22dd289b8469a8fa8dc81cab7b237771
+import  -/  ghc-prim-0.5.0.0:GHC.Classes 0bdf3d057a415ec1b84a7b1994efbe47
+f38f64afc691fe2a03b6c54e77decb67
+  $fShowExpr :: GHC.Show.Show Lib.Expr
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Lib.Expr
+                  Lib.$fShowExpr_$cshowsPrec
+                  Lib.$fShowExpr_$cshow
+                  Lib.$fShowExpr_$cshowList -}
+f38f64afc691fe2a03b6c54e77decb67
+  $fShowExpr1 :: Lib.Expr -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (x :: Lib.Expr) (s :: GHC.Base.String)[OneShot] ->
+                 GHC.Base.++ @ GHC.Types.Char (Lib.$fShowExpr_$cshow x) s) -}
+f38f64afc691fe2a03b6c54e77decb67
+  $fShowExpr_$cshow :: Lib.Expr -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U> -}
+f38f64afc691fe2a03b6c54e77decb67
+  $fShowExpr_$cshowList :: [Lib.Expr] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Lib.Expr]) (s :: GHC.Base.String) ->
+                 GHC.Show.showList__ @ Lib.Expr Lib.$fShowExpr1 ls s) -}
+f38f64afc691fe2a03b6c54e77decb67
+  $fShowExpr_$cshowsPrec ::
+    GHC.Types.Int -> Lib.Expr -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int) (x :: Lib.Expr) (s :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr @ GHC.Types.Char @ b c n (Lib.$fShowExpr_$cshow x))
+                   s) -}
+bf5e1af2c4938d10e6416742b3e82ce9
+  $fShowLambda :: GHC.Show.Show Lib.Lambda
+  DFunId
+  {- Strictness: m, Inline: [ALWAYS] CONLIKE,
+     Unfolding: DFun:.
+                  @ Lib.Lambda
+                  Lib.$fShowLambda_$cshowsPrec
+                  Lib.$fShowLambda_$cshow
+                  Lib.$fShowLambda_$cshowList -}
+bf5e1af2c4938d10e6416742b3e82ce9
+  $fShowLambda1 :: Lib.Lambda -> GHC.Base.String -> [GHC.Types.Char]
+  {- Arity: 2,
+     Unfolding: (\ (x :: Lib.Lambda) (s :: GHC.Base.String)[OneShot] ->
+                 case x of ww { Lib.Lambda ww1 ww2 ww3 ->
+                 GHC.Base.++ @ GHC.Types.Char (Lib.$w$cshow ww1 ww2) s }) -}
+92967e1727a3763094e4050000a6e384
+  $fShowLambda2 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# ")"#) -}
+bf5e1af2c4938d10e6416742b3e82ce9
+  $fShowLambda_$cshow :: Lib.Lambda -> GHC.Base.String
+  {- Arity: 1, Strictness: <S,1*U(1*U,1*U,A)>, Inline: INLINE[0],
+     Unfolding: InlineRule (1, True, False)
+                (\ (w :: Lib.Lambda) ->
+                 case w of ww { Lib.Lambda ww1 ww2 ww3 -> Lib.$w$cshow ww1 ww2 }) -}
+bf5e1af2c4938d10e6416742b3e82ce9
+  $fShowLambda_$cshowList :: [Lib.Lambda] -> GHC.Show.ShowS
+  {- Arity: 2, Strictness: <S,1*U><L,U>,
+     Unfolding: (\ (ls :: [Lib.Lambda]) (s :: GHC.Base.String) ->
+                 GHC.Show.showList__ @ Lib.Lambda Lib.$fShowLambda1 ls s) -}
+bf5e1af2c4938d10e6416742b3e82ce9
+  $fShowLambda_$cshowsPrec ::
+    GHC.Types.Int -> Lib.Lambda -> GHC.Show.ShowS
+  {- Arity: 3, Strictness: <L,A><S,1*U(1*U,1*U,A)><L,1*U>,
+     Unfolding: InlineRule (3, True, False)
+                (\ (ds :: GHC.Types.Int)
+                   (x :: Lib.Lambda)
+                   (s :: GHC.Base.String) ->
+                 GHC.Base.augment
+                   @ GHC.Types.Char
+                   (\ @ b
+                      (c :: GHC.Types.Char -> b -> b)[OneShot]
+                      (n :: b)[OneShot] ->
+                    GHC.Base.foldr
+                      @ GHC.Types.Char
+                      @ b
+                      c
+                      n
+                      (Lib.$fShowLambda_$cshow x))
+                   s) -}
+c29f39480675a2a5ff9e3468c2ec9b6c
+  $tc'App :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   3517039913887000084##
+                   17162626956470638985##
+                   Lib.$trModule
+                   Lib.$tc'App1) -}
+2f208e1649a6f3b5e2de49284892b63f
+  $tc'App1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'App"#) -}
+cf3028eaceb7f1271bbcf96678d9c3ff
+  $tc'Environment :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2019139717237463003##
+                   13183803240063403803##
+                   Lib.$trModule
+                   Lib.$tc'Environment1) -}
+3822ab7616f3c3bf4d66e84cc35a3ad7
+  $tc'Environment1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Environment"#) -}
+8543f5290dab24be7588a94daa9a2206
+  $tc'Lam :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   8566142546991884634##
+                   10668266244150481465##
+                   Lib.$trModule
+                   Lib.$tc'Lam1) -}
+dd4b2b7b9ea2a4941774371761597170
+  $tc'Lam1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Lam"#) -}
+029f82210a6383ed1f93e6f46c1e53cc
+  $tc'Lambda :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4430620783386421402##
+                   11396638472755039838##
+                   Lib.$trModule
+                   Lib.$tc'Lambda1) -}
+5df8a931f0c056f330dc7e18f245ce28
+  $tc'Lambda1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Lambda"#) -}
+caa37f84609f37ff0a08c3aa83022f1c
+  $tc'Root :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   12724799244647002671##
+                   3285638962013336296##
+                   Lib.$trModule
+                   Lib.$tc'Root1) -}
+e88d0d358e453dcbc9f2f4223201ab43
+  $tc'Root1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Root"#) -}
+6752bb49d2c4c2486b6aad067bd3c082
+  $tc'Var :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   16401806093493976359##
+                   2643002795268415142##
+                   Lib.$trModule
+                   Lib.$tc'Var1) -}
+781bf4e495397f460eb38fc1c79822c2
+  $tc'Var1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "'Var"#) -}
+fcff937346a811a6d8c0f8c679861000
+  $tcEnvironment :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   7694632903051142330##
+                   11232690828846225074##
+                   Lib.$trModule
+                   Lib.$tcEnvironment1) -}
+b552df0a207ce64569595a9c5625798d
+  $tcEnvironment1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Environment"#) -}
+7ed1e41c86d8f9db40d51916a54c1d22
+  $tcExpr :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   4437255627242318181##
+                   2118857444619851617##
+                   Lib.$trModule
+                   Lib.$tcExpr1) -}
+061e509979748922a4d985ecfa4cb0b0
+  $tcExpr1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Expr"#) -}
+dfbd5e21bbaf612299ef15633f39a65d
+  $tcLambda :: GHC.Types.TyCon
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.TyCon
+                   2647024480841537283##
+                   13635386449031223549##
+                   Lib.$trModule
+                   Lib.$tcLambda1) -}
+1a0c0b384235b9cedcfa6ded92f4f493
+  $tcLambda1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Lambda"#) -}
+f6464ea73f5e0ac1d0318fe109cab54d
+  $trModule :: GHC.Types.Module
+  {- HasNoCafRefs, Strictness: m,
+     Unfolding: (GHC.Types.Module Lib.$trModule2 Lib.$trModule1) -}
+aa7e418525c71b85f4b8b023455e2672
+  $trModule1 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS "Lib"#) -}
+1abb378d9400c7577d35fd1d0e59fca8
+  $trModule2 :: GHC.Types.TrName
+  {- HasNoCafRefs, Strictness: m1,
+     Unfolding: (GHC.Types.TrNameS
+                   "lambda-calculus-0.1.0.0-71ACHzEMgLIBMHG57ZzwZM"#) -}
+8f4b39f73d8ef0aa604d8b3b11966d0f
+  $w$cshow :: GHC.Base.String -> Lib.Expr -> GHC.Base.String
+  {- Arity: 2, Strictness: <L,1*U><L,1*U>, Inline: [0],
+     Unfolding: (\ (ww :: GHC.Base.String) (ww1 :: Lib.Expr) ->
+                 GHC.CString.unpackAppendCString#
+                   "(lambda ("#
+                   (GHC.Base.++
+                      @ GHC.Types.Char
+                      ww
+                      (GHC.CString.unpackAppendCString#
+                         ") "#
+                         (GHC.Base.++
+                            @ GHC.Types.Char
+                            (Lib.$fShowExpr_$cshow ww1)
+                            Lib.$fShowLambda2)))) -}
+abc113aff7fc856eca85d1a3b4c6733a
+  $wcc :: Lib.Expr -> [Lib.Expr] -> (# Lib.Expr, Lib.Expr #)
+  {- Arity: 2, Strictness: <L,U><S,1*U>, Inline: [0] -}
+3720c7bb1672ed03d63fafee6685e0b4
+  $wcl ::
+    [GHC.Base.String] -> Lib.Expr -> (# GHC.Base.String, Lib.Expr #)
+  {- Arity: 2, Strictness: <S,1*U><L,U>, Inline: [0] -}
+bf5e1af2c4938d10e6416742b3e82ce9
+  data Environment
+    = Root | Environment GHC.Base.String Lib.Lambda Lib.Environment
+f38f64afc691fe2a03b6c54e77decb67
+  data Expr
+    = Lam GHC.Base.String Lib.Expr
+    | App Lib.Expr Lib.Expr
+    | Var GHC.Base.String
+bf5e1af2c4938d10e6416742b3e82ce9
+  data Lambda
+    = Lambda {argumentname :: GHC.Base.String,
+              contents :: Lib.Expr,
+              parentEnv :: Lib.Environment}
+3429d4ab990e46292ddc7051eba356c1
+  argumentname :: Lib.Lambda -> GHC.Base.String
+  RecSel Left Lib.Lambda
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(SLL),1*U(1*U,A,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Lib.Lambda) ->
+                 case ds of wild { Lib.Lambda ds1 ds2 ds3 -> ds1 }) -}
+a10ddbb9dd120446dc2e3dcf713ad18d
+  contents :: Lib.Lambda -> Lib.Expr
+  RecSel Left Lib.Lambda
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LSL),1*U(A,1*U,A)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Lib.Lambda) ->
+                 case ds of wild { Lib.Lambda ds1 ds2 ds3 -> ds2 }) -}
+b29ce1d59b1287b1b7b50d7faac1c7c0
+  eval :: Lib.Expr -> Lib.Lambda
+  {- Arity: 1, Unfolding: (Lib.evalExp Lib.Root) -}
+2e030d41998d8867fcacfd4d230d35c4
+  evalExp :: Lib.Environment -> Lib.Expr -> Lib.Lambda
+  {- Arity: 2, Strictness: <L,U><S,1*U> -}
+5d4dd6e1f205ea5f02b9482a18632c0b
+  parentEnv :: Lib.Lambda -> Lib.Environment
+  RecSel Left Lib.Lambda
+  {- Arity: 1, HasNoCafRefs, Strictness: <S(LLS),1*U(A,A,1*U)>,
+     Unfolding: InlineRule (1, True, False)
+                (\ (ds :: Lib.Lambda) ->
+                 case ds of wild { Lib.Lambda ds1 ds2 ds3 -> ds3 }) -}
+4cc58e3b5da48f319d664d8872bba164
+  prog :: Lib.Expr
+  {- Strictness: m2, Unfolding: (Lib.App Lib.prog7 Lib.prog1) -}
+415b76fe06bc5e8c3ba2356e52e8891f
+  prog1 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcl
+                        Lib.prog4
+                        Lib.prog2 of ww { (#,#) ww1 ww2 ->
+                 Lib.Lam ww1 ww2 }) -}
+b542f6fafa1ee02b54a42b045ed368f4
+  prog10 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog6) -}
+84c98e1dac70e6a3ed4ab6ae35866880
+  prog11 :: Lib.Expr
+  {- Strictness: m1, Unfolding: (Lib.Lam Lib.prog28 Lib.prog12) -}
+0b65a3e71c44e0fe2fa3875f66c78bba
+  prog12 :: Lib.Expr
+  {- Strictness: m2, Unfolding: (Lib.App Lib.prog20 Lib.prog13) -}
+3198b00d0604d754c9b00e938f50bf91
+  prog13 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcl
+                        Lib.prog19
+                        Lib.prog14 of ww { (#,#) ww1 ww2 ->
+                 Lib.Lam ww1 ww2 }) -}
+7fd254a89308a06c214bff8e010e5bb2
+  prog14 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcc
+                        Lib.prog17
+                        Lib.prog15 of ww { (#,#) ww1 ww2 ->
+                 Lib.App ww1 ww2 }) -}
+1c2d6f0165667a67bdeda633657f094e
+  prog15 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog2 Lib.prog16) -}
+8140a23f78f69833feb4998876c42a8e
+  prog16 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.:
+                   @ Lib.Expr
+                   Lib.prog10
+                   (GHC.Types.[] @ Lib.Expr)) -}
+492fdbae16cec6f1c2dae4802a597f1d
+  prog17 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog18) -}
+80529d222c2def5cf30e4d03a5ab8e12
+  prog18 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "cond"#) -}
+86e7906da5d1481fbc45c94830cb48d5
+  prog19 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lib.prog18
+                   Lib.prog4) -}
+c19898d023a2da57b0ca92e222b62d41
+  prog2 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog3) -}
+472c5f522c9ed165008db7acf567061b
+  prog20 :: Lib.Expr
+  {- Strictness: m1, Unfolding: (Lib.Lam Lib.prog34 Lib.prog21) -}
+e61b43dd6796ba35948ad6b4d779b628
+  prog21 :: Lib.Expr
+  {- Strictness: m2, Unfolding: (Lib.App Lib.prog37 Lib.prog22) -}
+062ea10ac81fc2057ce3d55445d62117
+  prog22 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcl
+                        Lib.prog35
+                        Lib.prog23 of ww { (#,#) ww1 ww2 ->
+                 Lib.Lam ww1 ww2 }) -}
+e5cd84ea912374cde6b0bc2e71a887af
+  prog23 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcc
+                        Lib.prog33
+                        Lib.prog24 of ww { (#,#) ww1 ww2 ->
+                 Lib.App ww1 ww2 }) -}
+9db27f6e472fa785b576c8d509a6f4fb
+  prog24 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog31 Lib.prog25) -}
+85173328ac04cf89820f0371019c3e87
+  prog25 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog29 Lib.prog26) -}
+3a1e328a71091d82358ff84324199d79
+  prog26 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.:
+                   @ Lib.Expr
+                   Lib.prog27
+                   (GHC.Types.[] @ Lib.Expr)) -}
+81a59c6f0d70667e02a438463709cbb6
+  prog27 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog28) -}
+49ae4da1de166ccf2570609d78bef9c4
+  prog28 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "false"#) -}
+bb89314b10966e86085183c80ee1ed75
+  prog29 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog30) -}
+e76179d353612308a82219872913028d
+  prog3 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "t"#) -}
+0cca1b381c6fa722ae4dada14af73fa6
+  prog30 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "b"#) -}
+3dff5da7a197c981ca3b039161f4a504
+  prog31 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog32) -}
+ffa0c5a1c5e425a73d43106dac6a897e
+  prog32 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "a"#) -}
+d34e4888d2e344df4cbcfa23d78bb483
+  prog33 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog34) -}
+8bdff8ec71973ad0d31087419daccad9
+  prog34 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "if"#) -}
+fc1c1329fe7aafcf833ada250c29c02d
+  prog35 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lib.prog32
+                   Lib.prog36) -}
+7328fc960b416926f69942c8a1f9a027
+  prog36 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lib.prog30
+                   (GHC.Types.[] @ GHC.Base.String)) -}
+825e5d6ac72ccaf4bbc821673a533237
+  prog37 :: Lib.Expr
+  {- Strictness: m1, Unfolding: (Lib.Lam Lib.prog66 Lib.prog38) -}
+d0652695121d27d5faab19317e8c859c
+  prog38 :: Lib.Expr
+  {- Strictness: m2, Unfolding: (Lib.App Lib.prog46 Lib.prog39) -}
+b828c48402d6654ee7b7eb9ef2fef181
+  prog39 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcl
+                        Lib.prog35
+                        Lib.prog40 of ww { (#,#) ww1 ww2 ->
+                 Lib.Lam ww1 ww2 }) -}
+59e578f92328ac11984aa6f791f92b19
+  prog4 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lib.prog3
+                   Lib.prog5) -}
+02faba473112d5d0464fa5b635c28a6e
+  prog40 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcc
+                        Lib.prog33
+                        Lib.prog41 of ww { (#,#) ww1 ww2 ->
+                 Lib.App ww1 ww2 }) -}
+94cf3834d290dc0d959cd251c042f212
+  prog41 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog31 Lib.prog42) -}
+64305aacc3e9a6d4189bab6555fe4c7a
+  prog42 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog44 Lib.prog43) -}
+7e60b74d00b2267f1cd6416201b73cbc
+  prog43 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.:
+                   @ Lib.Expr
+                   Lib.prog29
+                   (GHC.Types.[] @ Lib.Expr)) -}
+31144009bc44a0675070cde1f7aa4a12
+  prog44 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog45) -}
+7df72a69338d68db0a74650aacd4f119
+  prog45 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "true"#) -}
+955b4e8969a391863591605d545c4310
+  prog46 :: Lib.Expr
+  {- Strictness: m1, Unfolding: (Lib.Lam Lib.prog61 Lib.prog47) -}
+1eee42c5f7a53b2d0eb01a7318896b8c
+  prog47 :: Lib.Expr
+  {- Strictness: m2, Unfolding: (Lib.App Lib.prog54 Lib.prog48) -}
+1e445019c1a7486b27fcf63ec71e1fe1
+  prog48 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcl
+                        Lib.prog53
+                        Lib.prog49 of ww { (#,#) ww1 ww2 ->
+                 Lib.Lam ww1 ww2 }) -}
+7b971d4e693bfd1e5793a76b1db6dcdf
+  prog49 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcc
+                        Lib.prog33
+                        Lib.prog50 of ww { (#,#) ww1 ww2 ->
+                 Lib.App ww1 ww2 }) -}
+9793d2f324e5f201ecfe75dd4be29645
+  prog5 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lib.prog6
+                   (GHC.Types.[] @ GHC.Base.String)) -}
+4848101b347d361ef60891f827b42e5c
+  prog50 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog31 Lib.prog51) -}
+23d4095553a0f04d13f427505d1bb5a9
+  prog51 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog27 Lib.prog52) -}
+9787b1f4d2578def95782a9a5c0c5936
+  prog52 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.:
+                   @ Lib.Expr
+                   Lib.prog44
+                   (GHC.Types.[] @ Lib.Expr)) -}
+367b9b5eee1c2788a5944d9ad7975e9d
+  prog53 :: [GHC.Base.String]
+  {- Unfolding: (GHC.Types.:
+                   @ GHC.Base.String
+                   Lib.prog32
+                   (GHC.Types.[] @ GHC.Base.String)) -}
+ef391eb1d2f75fc22dfde25560940b26
+  prog54 :: Lib.Expr
+  {- Strictness: m1, Unfolding: (Lib.Lam Lib.prog64 Lib.prog55) -}
+aa706e7a9c91918e99d52dcfb78fd86b
+  prog55 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcc
+                        Lib.prog65
+                        Lib.prog56 of ww { (#,#) ww1 ww2 ->
+                 Lib.App ww1 ww2 }) -}
+5a999a8a8b174b9ead35d2e996a341ee
+  prog56 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog62 Lib.prog57) -}
+cfe8536b5ab90f8fe86ebe0089d0daa8
+  prog57 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.:
+                   @ Lib.Expr
+                   Lib.prog58
+                   (GHC.Types.[] @ Lib.Expr)) -}
+11bfa2e5537bd59afa48d8624e985c76
+  prog58 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcc
+                        Lib.prog60
+                        Lib.prog59 of ww { (#,#) ww1 ww2 ->
+                 Lib.App ww1 ww2 }) -}
+86a2fb86e8575ed800b2266d01e6a910
+  prog59 :: [Lib.Expr]
+  {- Unfolding: (GHC.Types.: @ Lib.Expr Lib.prog44 Lib.prog26) -}
+4e7454dc7a800a879bc5340014652a1b
+  prog6 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "f"#) -}
+6652eda6fa27294f74b1a4ef394f5c3f
+  prog60 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog61) -}
+3b9120fb248a2bb28ef768ad7e373964
+  prog61 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "or"#) -}
+dfbdb75346c7ba50984335994c3e19ae
+  prog62 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcc
+                        Lib.prog63
+                        Lib.prog26 of ww { (#,#) ww1 ww2 ->
+                 Lib.App ww1 ww2 }) -}
+61510c60a080e7545eea1a1001247468
+  prog63 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog64) -}
+b5d46d2db0a166806402346b206f3c6e
+  prog64 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "not"#) -}
+8571680f5768cb9a8c15e31190728591
+  prog65 :: Lib.Expr
+  {- Unfolding: (Lib.Var Lib.prog66) -}
+ce131064ea1549791d0d523a890a8492
+  prog66 :: [GHC.Types.Char]
+  {- Unfolding: (GHC.CString.unpackCString# "and"#) -}
+33c5080c470fd45d3b93fa84f3d20922
+  prog7 :: Lib.Expr
+  {- Strictness: m1, Unfolding: (Lib.Lam Lib.prog45 Lib.prog8) -}
+6fa6bc28859db994c1ae8661b8b55914
+  prog8 :: Lib.Expr
+  {- Strictness: m2, Unfolding: (Lib.App Lib.prog11 Lib.prog9) -}
+c76c3ff918c012468f90767b84522b88
+  prog9 :: Lib.Expr
+  {- Unfolding: (case Lib.$wcl
+                        Lib.prog4
+                        Lib.prog10 of ww { (#,#) ww1 ww2 ->
+                 Lib.Lam ww1 ww2 }) -}
+instance [safe] GHC.Show.Show [Lib.Expr] = Lib.$fShowExpr
+instance [safe] GHC.Show.Show [Lib.Lambda] = Lib.$fShowLambda
+vectorised variables:
+vectorised tycons:
+vectorised reused tycons:
+parallel variables:
+parallel tycons:
+trusted: safe
+require own pkg trusted: False
+
