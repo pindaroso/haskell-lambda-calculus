@@ -1,6 +1,4 @@
 sudo: requires
-
 language: generic
-
 script:
   - make
