@@ -1,3 +1,5 @@
+-- Code adapted from https://github.com/Hardmath123/haskell-lambda-calculus
+
 module Lib
     ( prog
     , eval
@@ -28,7 +30,6 @@ envLookup n Root                           = error $ "Could not find the name " 
 envLookup n (Environment key value parent) = if n == key then value else envLookup n parent
 
 evalExp :: Environment -> Expr -> Lambda
-
 evalExp env (Lam argname body) = Lambda argname body env
 evalExp env (Var name) = envLookup name env
 evalExp env (App function argument) =
@@ -48,14 +49,14 @@ cl [n] body      = Lam n body
 cl (n:rest) body = Lam n (cl rest body)
 
 cc :: Expr -> [Expr] -> Expr
-cc e [arg] = App e arg
+cc e [arg]      = App e arg
 cc e (arg:rest) = cc (App e  arg) rest
 
 prog =
-  define "true"  (cl ["t", "f"] (Var "t")) $
-  define "false" (cl ["t", "f"] (Var "f")) $
-  define "if"  (cl ["cond", "t", "f"] (cc (Var "cond") [Var "t", Var "f"])) $
-  define "and" (cl ["a", "b"] (cc (Var "if") [Var "a", Var "b",     Var "false"])) $
-  define "or"  (cl ["a", "b"] (cc (Var "if") [Var "a", Var "true",  Var "b"])) $
-  define "not" (cl ["a"]      (cc (Var "if") [Var "a", Var "false", Var "true"])) $
+  define "true"  (cl ["t", "f"]         (Var "t")) $
+  define "false" (cl ["t", "f"]         (Var "f")) $
+  define "if"    (cl ["cond", "t", "f"] (cc (Var "cond") [Var "t", Var "f"])) $
+  define "and"   (cl ["a", "b"]         (cc (Var "if")   [Var "a", Var "b",     Var "false"])) $
+  define "or"    (cl ["a", "b"]         (cc (Var "if")   [Var "a", Var "true",  Var "b"])) $
+  define "not"   (cl ["a"]              (cc (Var "if")   [Var "a", Var "false", Var "true"])) $
   cc (Var "and") [cc (Var "not") [Var "false"], cc (Var "or") [Var "true", Var "false"]]
