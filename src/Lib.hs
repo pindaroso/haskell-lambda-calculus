@@ -12,9 +12,9 @@ data Exp = Lam Label Exp
          | Var Label
 
 instance Show Exp where
-  show (Lam argname body)      = "(lambda (" ++ argname ++ ") " ++ show body ++ ")"
-  show (App function argument) = "(" ++ show function ++ " " ++ show argument ++ ")"
-  show (Var name)              = name
+  show (Lam label exp) = "(lambda (" ++ label ++ ") " ++ show exp ++ ")"
+  show (App exp exp')  = "(" ++ show exp ++ " " ++ show exp' ++ ")"
+  show (Var label)     = label
 
 data Lambda = Lambda { argumentname :: Label
                      , contents     :: Exp
