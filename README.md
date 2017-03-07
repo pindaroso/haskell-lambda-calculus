@@ -8,7 +8,7 @@
 
 **Requirements**
 
-* Stack
+* Docker or Stack
 
 **Building**
 
