@@ -5,17 +5,19 @@ module Lib
     , eval
     ) where
 
-data Expr = Lam String Expr
-          | App Expr Expr
-          | Var String
+type Label = String
 
-instance Show Expr where
+data Exp = Lam Label Exp
+         | App Exp Exp
+         | Var Label
+
+instance Show Exp where
   show (Lam argname body)      = "(lambda (" ++ argname ++ ") " ++ show body ++ ")"
   show (App function argument) = "(" ++ show function ++ " " ++ show argument ++ ")"
   show (Var name)              = name
 
-data Lambda = Lambda { argumentname :: String
-                     , contents     :: Expr
+data Lambda = Lambda { argumentname :: Label
+                     , contents     :: Exp
                      , parentEnv    :: Environment
                      }
 
@@ -23,32 +25,32 @@ instance Show Lambda where
   show (Lambda argumentname contents parentEnv) = "(lambda (" ++ argumentname ++ ") " ++ show contents ++ ")"
 
 data Environment = Root
-                 | Environment String Lambda Environment
+                 | Environment Label Lambda Environment
 
-envLookup :: String -> Environment -> Lambda
-envLookup n Root                           = error $ "Could not find the name " ++ n
-envLookup n (Environment key value parent) = if n == key then value else envLookup n parent
+labelLookup :: Label -> Environment -> Lambda
+labelLookup n Root                           = error $ "Could not find the name " ++ n
+labelLookup n (Environment key value parent) = if n == key then value else labelLookup n parent
 
-evalExp :: Environment -> Expr -> Lambda
+evalExp :: Environment -> Exp -> Lambda
 evalExp env (Lam argname body) = Lambda argname body env
-evalExp env (Var name) = envLookup name env
+evalExp env (Var name) = labelLookup name env
 evalExp env (App function argument) =
   let arg = evalExp env argument
       fn  = evalExp env function
       ne  = Environment (argumentname fn) arg (parentEnv fn)
   in  evalExp ne (contents fn)
 
-eval :: Expr -> Lambda
+eval :: Exp -> Lambda
 eval = evalExp Root
 
-define :: String -> Expr -> Expr -> Expr
+define :: Label -> Exp -> Exp -> Exp
 define name value next = App (Lam name next) value
 
-cl :: [String] -> Expr -> Expr
+cl :: [Label] -> Exp -> Exp
 cl [n] body      = Lam n body
 cl (n:rest) body = Lam n (cl rest body)
 
-cc :: Expr -> [Expr] -> Expr
+cc :: Exp -> [Exp] -> Exp
 cc e [arg]      = App e arg
 cc e (arg:rest) = cc (App e  arg) rest
 
