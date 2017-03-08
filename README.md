@@ -2,7 +2,7 @@
 
 # haskell-lambda-calculus
 
-*λ-Calculus in Haskell*
+*λ-Calculus Interpreter in Haskell*
 
 ## Setup
 
@@ -10,8 +10,14 @@
 
 * Docker or Stack
 
-**Building**
+## Building
+
+**Stack**
 
 `make`
+
+**Docker Image**
+
+`docker pull stilesb/lambda-calculus:latest`
 
 Questions or comments? Message me at https://www.brandonstil.es.
