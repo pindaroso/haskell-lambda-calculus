@@ -1,4 +1,4 @@
-FROM debian:jessie
+FROM debian:jessie-slim
 RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv-keys 575159689BEFB442
 RUN echo 'deb http://download.fpcomplete.com/debian jessie main' | \
     tee /etc/apt/sources.list.d/fpco.list
