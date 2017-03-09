@@ -4,5 +4,5 @@ import           Lib (eval, prog)
 
 main = do
   print prog
-  putStrLn "...evaluates to..."
+  putStrLn "=>"
   print $ eval prog

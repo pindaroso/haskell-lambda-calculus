@@ -12,7 +12,7 @@ data Exp = Lam Label Exp
          | Var Label
 
 instance Show Exp where
-  show (Lam label exp) = "(lambda (" ++ label ++ ") " ++ show exp ++ ")"
+  show (Lam label exp) = "(λ" ++ label ++ "." ++ show exp ++ ")"
   show (App exp exp')  = "(" ++ show exp ++ " " ++ show exp' ++ ")"
   show (Var label)     = label
 
@@ -22,14 +22,14 @@ data Lambda = Lambda { argumentname :: Label
                      }
 
 instance Show Lambda where
-  show (Lambda argumentname contents parentEnv) = "(lambda (" ++ argumentname ++ ") " ++ show contents ++ ")"
+  show (Lambda argumentname contents parentEnv) = "(λ" ++ argumentname ++ "." ++ show contents ++ ")"
 
 data Environment = Root
                  | Environment Label Lambda Environment
 
 labelLookup :: Label -> Environment -> Lambda
-labelLookup n Root                           = error $ "Could not find the name " ++ n
-labelLookup n (Environment key value parent) = if n == key then value else labelLookup n parent
+labelLookup l Root                           = error $ "Could not find the name " ++ l
+labelLookup l (Environment key value parent) = if l == key then value else labelLookup l parent
 
 evalExp :: Environment -> Exp -> Lambda
 evalExp env (Lam argname body) = Lambda argname body env
