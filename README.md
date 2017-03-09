@@ -4,8 +4,6 @@
 
 *λ-Calculus Interpreter in Haskell*
 
-Code adapted from <a href="https://github.com/Hardmath123/haskell-lambda-calculus" target="_blank">here</a>.
-
 ## Setup
 
 **Requirements**
@@ -35,3 +33,5 @@ Code adapted from <a href="https://github.com/Hardmath123/haskell-lambda-calculu
 TODO:
 
 * Implement Y-Combinator
+
+Code adapted from <a href="https://github.com/Hardmath123/haskell-lambda-calculus" target="_blank">here</a>.
