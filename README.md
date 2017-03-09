@@ -30,8 +30,4 @@
 (λt.(λf.t))
 ```
 
-TODO:
-
-* Implement Y-Combinator
-
 Code adapted from <a href="https://github.com/Hardmath123/haskell-lambda-calculus" target="_blank">here</a>.
