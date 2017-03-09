@@ -16,13 +16,13 @@ instance Show Exp where
   show (App exp exp')  = "(" ++ show exp ++ " " ++ show exp' ++ ")"
   show (Var label)     = label
 
-data Lambda = Lambda { argumentname :: Label
-                     , contents     :: Exp
-                     , parentEnv    :: Environment
+data Lambda = Lambda { lambdaLabel     :: Label
+                     , lambdaExp       :: Exp
+                     , lambdaParentEnv :: Environment
                      }
 
 instance Show Lambda where
-  show (Lambda argumentname contents parentEnv) = "(λ" ++ argumentname ++ "." ++ show contents ++ ")"
+  show (Lambda lambdaLabel lambdaExp lambdaParentEnv) = "(λ" ++ lambdaLabel ++ "." ++ show lambdaExp ++ ")"
 
 data Environment = Root
                  | Environment Label Lambda Environment
@@ -37,8 +37,8 @@ evalExp env (Var name) = labelLookup name env
 evalExp env (App function argument) =
   let arg = evalExp env argument
       fn  = evalExp env function
-      ne  = Environment (argumentname fn) arg (parentEnv fn)
-  in  evalExp ne (contents fn)
+      ne  = Environment (lambdaLabel fn) arg (lambdaParentEnv fn)
+  in  evalExp ne (lambdaExp fn)
 
 eval :: Exp -> Lambda
 eval = evalExp Root
