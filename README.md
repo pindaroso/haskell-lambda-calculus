@@ -16,7 +16,7 @@
 
 `make`
 
-**Docker Image**
+**Docker**
 
 `docker pull stilesb/lambda-calculus:latest`
 
