@@ -46,19 +46,19 @@ eval = evalExp Root
 define :: Label -> Exp -> Exp -> Exp
 define name value next = App (Lam name next) value
 
-cl :: [Label] -> Exp -> Exp
-cl [n] body      = Lam n body
-cl (n:rest) body = Lam n (cl rest body)
+curryList :: [Label] -> Exp -> Exp
+curryList [n] body      = Lam n body
+curryList (n:rest) body = Lam n (curryList rest body)
 
-cc :: Exp -> [Exp] -> Exp
-cc e [arg]      = App e arg
-cc e (arg:rest) = cc (App e  arg) rest
+curryCall :: Exp -> [Exp] -> Exp
+curryCall e [arg]      = App e arg
+curryCall e (arg:rest) = curryCall (App e  arg) rest
 
 prog =
-  define "true"  (cl ["t", "f"]         (Var "t")) $
-  define "false" (cl ["t", "f"]         (Var "f")) $
-  define "if"    (cl ["cond", "t", "f"] (cc (Var "cond") [Var "t", Var "f"])) $
-  define "and"   (cl ["a", "b"]         (cc (Var "if")   [Var "a", Var "b",     Var "false"])) $
-  define "or"    (cl ["a", "b"]         (cc (Var "if")   [Var "a", Var "true",  Var "b"])) $
-  define "not"   (cl ["a"]              (cc (Var "if")   [Var "a", Var "false", Var "true"])) $
-  cc (Var "and") [cc (Var "not") [Var "false"], cc (Var "or") [Var "true", Var "false"]]
+  define "true"  (curryList ["t", "f"]         (Var "t")) $
+  define "false" (curryList ["t", "f"]         (Var "f")) $
+  define "if"    (curryList ["cond", "t", "f"] (curryCall (Var "cond") [Var "t", Var "f"])) $
+  define "and"   (curryList ["a", "b"]         (curryCall (Var "if")   [Var "a", Var "b",     Var "false"])) $
+  define "or"    (curryList ["a", "b"]         (curryCall (Var "if")   [Var "a", Var "true",  Var "b"])) $
+  define "not"   (curryList ["a"]              (curryCall (Var "if")   [Var "a", Var "false", Var "true"])) $
+  curryCall (Var "and") [curryCall (Var "not") [Var "false"], curryCall (Var "or") [Var "true", Var "false"]]
