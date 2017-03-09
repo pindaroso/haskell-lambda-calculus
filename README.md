@@ -32,9 +32,6 @@ Code adapted from <a href="https://github.com/Hardmath123/haskell-lambda-calculu
 (λt.(λf.t))
 ```
 
-**TODO**
+TODO:
 
 * Implement Y-Combinator
-
-Questions or comments? Message me at https://www.brandonstil.es.
-
