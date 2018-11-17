@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/stilesb/haskell-lambda-calculus.svg?branch=master)](https://travis-ci.org/pindaroso/haskell-lambda-calculus)
+[![Build Status](https://travis-ci.org/pindaroso/haskell-lambda-calculus.svg?branch=master)](https://travis-ci.org/pindaroso/haskell-lambda-calculus)
 
 # haskell-lambda-calculus
 
